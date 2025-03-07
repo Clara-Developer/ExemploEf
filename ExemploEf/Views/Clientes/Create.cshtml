@@ -1,0 +1,149 @@
+﻿@using Microsoft.CodeAnalysis.Differencing
+@model ExemploEf.Models.Cliente
+
+@{
+    ViewData["Title"] = "Criar Usuário";
+}
+
+<!-- Seção de título -->
+<h1 class="text-center ocean-theme cute-font">Criar Usuário</h1>
+
+<h4 class="text-center ocean-theme cute-font">Cliente</h4>
+<hr class="ocean-theme" />
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 ocean-form-container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <!-- Nome Field -->
+            <div class="form-group ocean-form-group">
+                <label asp-for="Nome" class="control-label ocean-label cute-font"></label>
+                <input asp-for="Nome" class="form-control ocean-input cute-input" />
+                <span asp-validation-for="Nome" class="text-danger ocean-error"></span>
+            </div>
+
+            <!-- Nascimento (Birthdate) Field -->
+            <div class="form-group ocean-form-group">
+                <label asp-for="Nascimento" class="control-label ocean-label cute-font"></label>
+                <input asp-for="Nascimento" type="date" class="form-control ocean-input cute-input" />
+                <span asp-validation-for="Nascimento" class="text-danger ocean-error"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group ocean-form-group">
+                <input type="submit" value="Criar" class="btn ocean-btn cute-btn" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Link de retorno -->
+<div class="text-center ocean-link">
+    <a asp-action="Index" class="ocean-link cute-font">Voltar para lista de clientes</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<!-- Estilos de tema mar -->
+<style>
+    body {
+        background-color: #e0f7fa; /* Cor suave de fundo azul claro */
+        font-family: 'Poppins', Arial, sans-serif; /* Fonte mais suave e amigável */
+        color: #0277bd; /* Azul marinho para texto */
+    }
+
+    .cute-font {
+        font-family: 'Dancing Script', cursive; /* Fonte fofa para títulos e textos */
+        font-weight: 400;
+    }
+
+    .ocean-theme {
+        color: #0288d1; /* Azul forte */
+    }
+
+    h1, h4 {
+        text-shadow: 2px 2px 5px rgba(0, 123, 255, 0.3); /* Efeito de sombra suave */
+    }
+
+    .ocean-form-container {
+        background-color: #b2ebf2; /* Cor de fundo suave para o formulário */
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ocean-form-group {
+        margin-bottom: 20px;
+    }
+
+    .ocean-label {
+        color: #0277bd;
+        font-size: 14px;
+    }
+
+    .cute-input {
+        border: 1px solid #0288d1;
+        border-radius: 8px;
+        padding: 12px;
+        background-color: #ffffff;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    .cute-input:focus {
+        border-color: #00acc1;
+        outline: none;
+        box-shadow: 0px 0px 8px rgba(0, 150, 136, 0.6);
+    }
+
+    .ocean-btn {
+        background-color: #0288d1;
+        color: white;
+        font-size: 18px;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 8px;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .ocean-btn:hover {
+        background-color: #0277bd;
+    }
+
+    .ocean-link {
+        color: #0277bd;
+        text-decoration: none;
+    }
+
+    .ocean-link:hover {
+        color: #01579b;
+        text-decoration: underline;
+    }
+
+    .ocean-error {
+        font-size: 12px;
+        color: #e57373;
+    }
+
+    hr.ocean-theme {
+        border: 1px solid #0288d1;
+        width: 60%;
+        margin: 20px auto;
+    }
+
+    /* Responsividade */
+     (max-width: 768px) {
+        .col-md-6 {
+            width: 100%;
+        }
+    }
+</style>
+
+<!-- Incluindo a fonte Dancing Script para um toque fofo -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+

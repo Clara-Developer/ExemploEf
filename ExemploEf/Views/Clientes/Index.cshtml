@@ -1,0 +1,152 @@
+﻿@model IEnumerable<ExemploEf.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<!-- Contêiner principal -->
+<div class="container mt-4 ocean-container">
+    <div class="text-center ocean-header">
+        <h1 class="fw-bold ocean-title">Lista de Clientes</h1>
+        <p class="text-muted ocean-text">Gerencie os clientes cadastrados no sistema!</p>
+    </div>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a asp-action="Create" class="btn ocean-btn-create">
+            <i class="bi bi-plus-circle"></i> Criar Novo Cliente
+        </a>
+    </div>
+
+    <div class="table-responsive ocean-table-container">
+        <table class="table table-hover table-bordered align-middle ocean-table">
+            <thead class="table-dark ocean-table-header">
+                <tr>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.Nome)</th>
+                    <th class="text-center">@Html.DisplayNameFor(model => model.Nascimento)</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td class="text-center">@Html.DisplayFor(modelItem => item.Nascimento)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.ClienteID" class="btn ocean-btn-action">
+                                <i class="bi bi-pencil me-1"></i> Editar
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.ClienteID" class="btn ocean-btn-details">
+                                <i class="bi bi-eye me-1"></i> Detalhes
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.ClienteID" class="btn ocean-btn-delete">
+                                <i class="bi bi-trash me-1"></i> Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+        // Inicializa tooltips do Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+}
+
+<!-- Estilos de tema fofo e azul com imagens de animais marinhos -->
+<style>
+
+    /* Fundo com tons de azul e elementos fofos */
+    body {
+        background-color: #e0f7fa; /* Azul clarinho */
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: #0277bd; /* Azul mais escuro para contraste */
+        background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png'); /* Nova textura sutil */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* Estilo do contêiner principal */
+    .ocean-container {
+        background-color: rgba(255, 255, 255, 0.8); /* Fundo branco translúcido */
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Título e subtítulo */
+    .ocean-header {
+        margin-bottom: 30px;
+    }
+
+    .ocean-title {
+        color: #01579b;
+        font-size: 2.5rem;
+        font-family: 'Pacifico', cursive; /* Fonte mais divertida e amigável */
+        text-shadow: 3px 3px 10px rgba(0, 123, 255, 0.5); /* Efeito de sombra suave */
+    }
+
+    .ocean-text {
+        color: #0277bd;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    /* Botão Criar com ícone fofo */
+    .ocean-btn-create {
+        background-color: #80deea; /* Azul claro suave */
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        padding: 12px 25px;
+        transition: background-color 0.3s ease;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background-image: url('https://www.iconsdb.com/icons/preview/royal-blue/fish-xxl.png'); /* Ícone de peixe fofo */
+        background-repeat: no-repeat;
+        background-position: right;
+        padding-right: 35px; /* Espaço para o ícone */
+    }
+
+        .ocean-btn-create:hover {
+            background-color: #4db6ac; /* Azul mais forte */
+        }
+
+    /* Estilos de Tabela */
+    .ocean-table-container {
+        margin-top: 30px;
+    }
+
+    .ocean-table {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ocean-table-header {
+        background-color: #26c6da; /* Azul suave */
+        color: white;
+        font-size: 1.1rem;
+    }
+
+    /* Botões de ação com ícones fofos */
+    .ocean-btn-action, .ocean-btn-details, .ocean-btn-delete {
+        border-radius: 10px;
+        padding: 8px 15px;
+        font-weight: bold;
+        background-color: #80deea; /* Azul claro */
+        color: white;
+        background-image: url('https://www.iconsdb.com/icons/preview/blue/dolphin-xxl.png'); /* Ícone de golfinh
+

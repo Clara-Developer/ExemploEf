@@ -1,0 +1,143 @@
+﻿@model ExemploEf.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<!-- Container principal -->
+<div class="container ocean-container mt-4">
+    <div class="text-center ocean-header">
+        <h1 class="fw-bold ocean-title">Detalhes do Cliente</h1>
+        <p class="text-muted ocean-text">Veja as informações detalhadas do cliente.</p>
+    </div>
+
+    <div>
+        <h4 class="ocean-subtitle">Cliente</h4>
+        <hr class="ocean-hr" />
+        <dl class="row ocean-details">
+            <dt class="col-sm-2 ocean-label">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10 ocean-value">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt class="col-sm-2 ocean-label">
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </dt>
+            <dd class="col-sm-10 ocean-value">
+                @Html.DisplayFor(model => model.Nascimento)
+            </dd>
+        </dl>
+    </div>
+
+    <!-- Links para editar ou voltar -->
+    <div class="text-center ocean-back-link">
+        <a asp-action="Edit" asp-route-id="@Model?.ClienteID" class="ocean-link">
+            <i class="bi bi-pencil"></i> Editar
+        </a> |
+        <a asp-action="Index" class="ocean-link">
+            <i class="bi bi-arrow-left-circle"></i> Voltar para lista
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Estilos do Tema de Mar -->
+<style>
+    /* Fundo com tons de azul e elementos fofos */
+    body {
+        background-color: #e0f7fa; /* Azul clarinho */
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: #0277bd; /* Azul mais escuro para contraste */
+        background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png'); /* Textura suave */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* Container principal */
+    .ocean-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Título principal */
+    .ocean-header {
+        margin-bottom: 30px;
+    }
+
+    .ocean-title {
+        color: #01579b;
+        font-size: 2.5rem;
+        font-family: 'Pacifico', cursive;
+        text-shadow: 3px 3px 10px rgba(0, 123, 255, 0.5); /* Efeito de sombra suave */
+    }
+
+    .ocean-text {
+        color: #0277bd;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    /* Subtítulo Cliente */
+    .ocean-subtitle {
+        color: #01579b;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos de descrição */
+    .ocean-details {
+        margin-bottom: 30px;
+    }
+
+    .ocean-label {
+        color: #01579b;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .ocean-value {
+        color: #4db6ac;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    /* Linha horizontal */
+    .ocean-hr {
+        border: 1px solid #4db6ac;
+    }
+
+    /* Links de Ação */
+    .ocean-back-link {
+        margin-top: 20px;
+    }
+
+    .ocean-link {
+        color: #01579b;
+        font-size: 1.1rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .ocean-link:hover {
+            text-decoration: underline;
+            color: #0288d1;
+        }
+
+        /* Ícones */
+        .ocean-link i {
+            font-size: 1.3rem;
+            margin-right: 8px;
+        }
+</style>

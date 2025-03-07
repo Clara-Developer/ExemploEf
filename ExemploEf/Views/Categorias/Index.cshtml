@@ -1,0 +1,127 @@
+﻿    @model IEnumerable<ExemploEf.Models.Categoria>
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1 class="text-center ocean-theme cute-font my-4">Lista de Categorias</h1>
+
+    <p class="text-center">
+        <a asp-action="Create" class="btn ocean-btn btn-lg cute-btn">Criar Nova</a>
+    </p>
+
+    <table class="table table-bordered table-striped ocean-table">
+        <thead class="thead-dark ocean-head">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nome)</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn ocean-btn btn-sm cute-btn">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.CategoriaId" class="btn ocean-btn btn-sm cute-btn">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn ocean-btn btn-sm cute-btn">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+    <!-- Estilos de tema mar -->
+    <style>
+        body {
+            background-color: #e0f7fa; /* Azul claro suave como fundo */
+            font-family: 'Poppins', Arial, sans-serif; /* Fonte fofa e amigável */
+            color: #0277bd; /* Azul marinho */
+        }
+
+        .ocean-theme {
+            color: #0288d1; /* Azul forte para títulos */
+            font-family: 'Dancing Script', cursive; /* Fonte fofa */
+        }
+
+        .cute-font {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 400;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 5px rgba(0, 123, 255, 0.3); /* Efeito de sombra suave */
+        }
+
+        .ocean-btn {
+            background-color: #0288d1;
+            color: white;
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            text-transform: capitalize;
+        }
+
+        .ocean-btn:hover {
+            background-color: #0277bd;
+        }
+
+        .ocean-table {
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ocean-head {
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .ocean-table td {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .cute-btn {
+            border-radius: 8px;
+            padding: 8px 15px;
+            font-weight: 500;
+        }
+
+        .ocean-link {
+            color: #0277bd;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .ocean-link:hover {
+            color: #01579b;
+            text-decoration: underline;
+        }
+
+        /* Estilos de Responsividade */
+         (max-width: 768px) {
+            .col-md-6 {
+                width: 100%;
+            }
+
+            .ocean-btn {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!-- Incluindo a fonte Dancing Script para um toque fofo -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+

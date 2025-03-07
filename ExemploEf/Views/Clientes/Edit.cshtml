@@ -1,0 +1,155 @@
+﻿@model ExemploEf.Models.Cliente
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<!-- Container principal -->
+<div class="container ocean-container mt-4">
+    <div class="text-center ocean-header">
+        <h1 class="fw-bold ocean-title">Editar Cliente</h1>
+        <p class="text-muted ocean-text">Altere os dados do cliente conforme necessário.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ClienteID" />
+
+                <!-- Nome do Cliente -->
+                <div class="form-group ocean-form-group">
+                    <label asp-for="Nome" class="control-label ocean-label"></label>
+                    <input asp-for="Nome" class="form-control ocean-input" />
+                    <span asp-validation-for="Nome" class="text-danger ocean-validation"></span>
+                </div>
+
+                <!-- Data de Nascimento -->
+                <div class="form-group ocean-form-group">
+                    <label asp-for="Nascimento" class="control-label ocean-label"></label>
+                    <input asp-for="Nascimento" class="form-control ocean-input" />
+                    <span asp-validation-for="Nascimento" class="text-danger ocean-validation"></span>
+                </div>
+
+                <!-- Botão Salvar -->
+                <div class="form-group">
+                    <input type="submit" value="Salvar" class="btn ocean-btn-save" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center ocean-back-link">
+        <a asp-action="Index" class="ocean-link">Voltar para lista de clientes</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<!-- Estilos do Tema de Mar -->
+<style>
+    /* Fundo com tons de azul e elementos fofos */
+    body {
+        background-color: #e0f7fa; /* Azul clarinho */
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        color: #0277bd; /* Azul mais escuro para contraste */
+        background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes-light.png'); /* Textura suave */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    /* Container principal */
+    .ocean-container {
+        background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Título e subtítulo */
+    .ocean-header {
+        margin-bottom: 30px;
+    }
+
+    .ocean-title {
+        color: #01579b;
+        font-size: 2.5rem;
+        font-family: 'Pacifico', cursive; /* Fonte divertida */
+        text-shadow: 3px 3px 10px rgba(0, 123, 255, 0.5); /* Efeito de sombra suave */
+    }
+
+    .ocean-text {
+        color: #0277bd;
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    /* Estilo do formulário */
+    .ocean-form-group {
+        margin-bottom: 20px;
+    }
+
+    .ocean-label {
+        font-size: 1.1rem;
+        color: #01579b;
+    }
+
+    .ocean-input {
+        border-radius: 10px;
+        padding: 12px;
+        border: 2px solid #80deea;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        transition: border-color 0.3s ease;
+    }
+
+        .ocean-input:focus {
+            border-color: #4db6ac;
+        }
+
+    .ocean-validation {
+        color: #d32f2f;
+        font-size: 0.9rem;
+    }
+
+    /* Botão Salvar */
+    .ocean-btn-save {
+        background-color: #4db6ac; /* Azul suave */
+        color: white;
+        font-weight: bold;
+        padding: 12px 30px;
+        border-radius: 15px;
+        border: none;
+        transition: background-color 0.3s ease;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+        .ocean-btn-save:hover {
+            background-color: #26c6da; /* Azul mais forte */
+        }
+
+    /* Link para voltar */
+    .ocean-back-link {
+        margin-top: 20px;
+    }
+
+    .ocean-link {
+        color: #01579b;
+        font-size: 1.1rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .ocean-link:hover {
+            text-decoration: underline;
+            color: #0288d1;
+        }
+</style>
+

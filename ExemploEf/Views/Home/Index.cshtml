@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center ocean-container">
+    <h1 class="display-4 ocean-title">Bem-vindo</h1>
+    <p class="ocean-text">Learn about <a href="https://learn.microsoft.com/aspnet/core" class="ocean-link">criando aplicativos da Web com ASP.NET Core</a>.</p>
+</div>
+
+<!-- Carregar a fonte do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<!-- Estilos de tema mar -->
+<style>
+    body {
+        background-color: #e0f7fa; /* Fundo azul claro */
+        font-family: 'Pacifico', cursive; /* Fonte fofa e cursiva */
+        color: #0277bd; /* Texto azul escuro */
+    }
+
+    .ocean-container {
+        padding: 50px;
+        background-color: #b2ebf2; /* Fundo suave de mar */
+        border-radius: 8px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ocean-title {
+        color: #01579b;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px rgba(0, 123, 255, 0.3); /* Efeito de sombra suave */
+        font-family: 'Pacifico', cursive; /* Fonte fofa no título */
+    }
+
+    .ocean-text {
+        font-size: 18px;
+        color: #0277bd;
+        font-family: 'Pacifico', cursive; /* Fonte fofa no texto */
+    }
+
+    .ocean-link {
+        color: #0288d1;
+        text-decoration: none;
+    }
+
+        .ocean-link:hover {
+            color: #00796b;
+            text-decoration: underline;
+        }
+
+        /* Adicionando sombra ao link para melhorar a interatividade */
+        .ocean-link:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 150, 136, 0.6);
+        }
+</style>
