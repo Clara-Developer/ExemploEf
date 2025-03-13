@@ -1,5 +1,6 @@
 ﻿using ExemploEf.Models;
 using Microsoft.EntityFrameworkCore;
+using ExemploEF.Models;
 
 namespace ExemploEf.Data
 {
@@ -18,5 +19,6 @@ namespace ExemploEf.Data
             modelBuilder.Entity<Cliente>().ToTable("Clientes");
             modelBuilder.Entity<Categoria>().ToTable("tbCategorias");
         }
+        public DbSet<ExemploEF.Models.Produto> Produto { get; set; } = default!;
     }
 }
